@@ -5,6 +5,9 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.niit.model.*;
 
 @Entity
 @Table(name="ProductDetails")
@@ -19,16 +22,41 @@ int price;
 int quantity;
 @Column(name="ProductName")
 String productName;
-@Column(name="Brand")
-String brand;
 @Column(name="Description")
 String description;
-@Column(name="Category")
-String category;
-@Column(name="Supplier")
-String supplier;
+
+@Transient	
+MultipartFile file;
+
+public MultipartFile getFile() {
+	return file;
+}
+public void setFile(MultipartFile file) {
+	this.file = file;
+}
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "S_ID", nullable = false)
+private Supplier supplier;
+
+public Supplier getSupplier() {
+	return supplier;
+}
+public void setSupplier(Supplier supplier) {
+	this.supplier = supplier;
+}
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "C_ID", nullable = false)
+private Category category;
 
 
+public Category getCategory() {
+	return category;
+}
+public void setCategory(Category category) {
+	this.category = category;
+}
 public int getProductId() {
 	return productId;
 }
@@ -37,19 +65,19 @@ public Product()
 	
 }
 
-public Product(int productId, String productName, String brand, String category,String description,int price, int quantity,
-		 String supplier) {
+
+
+public Product(int productId, int price, int quantity, String productName, String description, Supplier supplier,
+		Category category) {
 	super();
 	this.productId = productId;
 	this.price = price;
 	this.quantity = quantity;
 	this.productName = productName;
-	this.brand = brand;
 	this.description = description;
-	this.category = category;
 	this.supplier = supplier;
+	this.category = category;
 }
-
 public void setProductId(int productId) {
 	this.productId = productId;
 }
@@ -71,36 +99,14 @@ public String getProductName() {
 public void setProductName(String productName) {
 	this.productName = productName;
 }
-public String getBrand() {
-	return brand;
-}
-public void setBrand(String brand) {
-	this.brand = brand;
-}
+
 public String getDescription() {
 	return description;
 }
 public void setDescription(String description) {
 	this.description = description;
 }
-public String getCategory() {
-	return category;
-}
-public void setCategory(String category) {
-	this.category = category;
-}
-public String getSupplier() {
-	return supplier;
-}
-public void setSupplier(String supplier) {
-	this.supplier = supplier;
-}
 
-@Override
-public String toString() {
-return "Product [productId=" + productId + ", productName=" + productName + ","
-		+ " brand=" + brand + ", category= "+ category+",description="+description+","
-				+ "quantity="+quantity+",supplier="+supplier+"]";
-}
+
 
 }

@@ -42,7 +42,7 @@ Driver class will available in H2 console
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:tcp://localhost/~/MyDB");
+        dataSource.setUrl("jdbc:h2:tcp://localhost/~/DB");
         dataSource.setUsername("sa");	        
         dataSource.setPassword("");
         return dataSource;
@@ -64,8 +64,8 @@ Driver class will available in H2 console
 	    public SessionFactory sessionFactory(DataSource dataSource) {
 	        LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);	        
 	        builder.addProperties(hibernateProperties());
-	      // builder.scanPackages("com.niit.model");
-	        builder.addAnnotatedClasses(Product.class);
+	        builder.scanPackages("com.niit.model");
+	      //  builder.addAnnotatedClasses(Product.class);
 	        return builder.buildSessionFactory();
 	     }
 	

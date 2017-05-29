@@ -3,3 +3,5 @@
     	$('#regis-modal').modal('hide');
     	$('#login-modal').modal('show');
     });
+    
+   
