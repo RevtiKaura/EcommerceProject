@@ -1,0 +1,53 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+                    http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+             http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+           <security:http auto-config="true">
+               <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+              <!--  <security:intercept-url pattern="/customer" access="hasRole('ROLE_USER')" /> -->
+                     <security:form-login  username-parameter="username"
+                     password-parameter="password" authentication-failure-forward-url="/noAccessPage"  />                    
+                                        
+              <security:access-denied-handler
+                     error-page="/noAccessPage" />
+              <security:csrf disabled="true"/>
+ 
+              <security:logout logout-url="/logout" invalidate-session="true" logout-success-url="/" />
+       </security:http>
+       <security:authentication-manager> 
+              <security:authentication-provider>
+                     <security:jdbc-user-service
+                           data-source-ref="datasource"
+                           users-by-username-query="select userEmail, password, 'TRUE' as enabled from user where userEmail=?"
+                           authorities-by-username-query="select userEmail, role from user where userEmail=?" />
+              </security:authentication-provider>
+       </security:authentication-manager>
+     <!--  <security:http auto-config="true">
+        <security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
+        <security:intercept-url pattern="/customer/**" access="ROLE_USER" />
+        <security:form-login
+            login-page="/login"
+            default-target-url="/"
+            authentication-failure-url="/login?noAccessPage"
+            username-parameter="user"
+            password-parameter="pass" />
+        <security:logout
+            logout-success-url="/login?logout" />
+    </security:http>
+ 
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="datasource"
+                                        authorities-by-username-query="SELECT userEmail, role From User WHERE userEmail = ?"
+                                        users-by-username-query="SELECT userEmail, password, enabled FROM User WHERE userEmail = ?" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+ -->
+</beans>
