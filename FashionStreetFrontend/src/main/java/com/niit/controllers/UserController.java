@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,12 +43,25 @@ public class UserController {
 	public ModelAndView msg()
 	{
 		ModelAndView mv=new ModelAndView("registration");
+		mv.addObject("categoryList1", categoryDao.getCategoryList());
+
 		mv.addObject("user",new User());
 		return mv;
 		
 		
 	}
 	
+	@RequestMapping(value="/administrator")
+	public String administrator()
+	{
+		return "administrator";
+	}
+	
+	@RequestMapping(value="/test")
+	public String administrator1()
+	{
+		return "test";
+	}
 	
 	@ModelAttribute
 	public ModelAndView  addList(){
@@ -88,6 +102,34 @@ public class UserController {
 
 		return "login";
 	}
-	
+	@RequestMapping("/userLogged")
+	public String userLogged() {
 
+		return "redirect:/";
+	}
+	
+	
+	@RequestMapping(value="/productDetails1/{pid}")
+	public ModelAndView productDetailsProceed(@PathVariable("pid") int pid){
+	Product p=productDao.getProduct(pid);
+	ModelAndView mv=new ModelAndView("productDetails");
+	mv.addObject("product",p);
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/addProductTocart/{pid}")
+	public ModelAndView cartProceed(@PathVariable("pid") int pid){
+	Product p=productDao.getProduct(pid);
+	ModelAndView mv=new ModelAndView("cart");
+	mv.addObject("product",p);
+		return mv;
+		
+	}
+
+	@RequestMapping("/ack")
+	public String ack() {
+
+		return "acknowledge";
+	}
 }

@@ -1,6 +1,8 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
+<spring:url var="img" value="/resources/images"></spring:url>
 </head>
 <body>
 <div class="container">
@@ -27,7 +29,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item">
-      <img class="img-responsive center-block" src="resources/images/fashion9.jpg" alt="Clothes">
+      <img class="img-responsive center-block" src="${img}/fashion9.jpg" alt="Clothes">
     </div>
 
     <div class="item active">

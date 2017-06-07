@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class Orders {
 
 @Id
+@GeneratedValue(strategy = GenerationType.AUTO)
 private int orderId;
 
 @ManyToOne

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,20 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return list;
 	}
 
-	public Category getCategory(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Category getCategoryById(Integer id) {
+		Session ssn=session.openSession();
+		Category p=null;
+		try{
+			ssn.beginTransaction();
+		 p=	ssn.get(Category.class, id);
+		ssn.getTransaction().commit();
+			
+			
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			ssn.getTransaction().rollback();
+		}
+		return p;
 	}
 
 	public void insertCategory(Category p) {
@@ -48,5 +60,4 @@ public class CategoryDAOImpl implements CategoryDAO{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

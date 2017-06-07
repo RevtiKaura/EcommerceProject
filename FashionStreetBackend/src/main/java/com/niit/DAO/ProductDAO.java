@@ -10,4 +10,7 @@ public interface ProductDAO {
 	  public void insertProduct(Product p);
 	  public void deleteProductById(int productId);
 	  public void updateProduct(Product p);
+      public List<Product> getProductsByCategory(int cid); 
+	  
+	
 }

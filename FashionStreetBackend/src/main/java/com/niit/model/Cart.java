@@ -1,84 +1,90 @@
 package com.niit.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Entity
-@Table(name="CartDetails")
+@Table
 public class Cart implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="CartId")
-	private Cart cartId;
+	@GeneratedValue
+	@Column(name = "cartId")
+	private int cartId;
+
+	@Column(name = "cartProductId")
+	private int cartProductId;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "userMailId")
+	private User cartUserDetails;
+	@Column(name = "cartPrice")
+	private Double cartPrice;
+	@Column(name = "cartQuantity")
+	private int cartQuantity;
+	private String cartProductname;
+	private String cartImage;
 	
-	@OneToMany
-    @JoinColumn(name="productId")
-	private Set<Product> products = new HashSet<Product>(0);
-	
-	@OneToMany
-    @JoinColumn(name="Cart_Supplier_ID")
-	private Set<Supplier> suppliers = new HashSet<Supplier>(0);
-	private double price;
-	private int quantity;
-	private String status;
-	
-	@OneToOne
-    @JoinColumn(name="Cart_User_ID")
-	private	User user;
-	
-	
-	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public Cart getCartId() {
-		return cartId;
-	}
-	public void setCartId(Cart cartId) {
-		this.cartId = cartId;
+
+	public String getCartProductname() {
+		return cartProductname;
 	}
 
-	public Set<Product> getProducts() {
-		return products;
-	}
-	public void setProducts(Set<Product> products) {
-		this.products = products;
-	}
-	public Set<Supplier> getSuppliers() {
-		return suppliers;
-	}
-	public void setSuppliers(Set<Supplier> suppliers) {
-		this.suppliers = suppliers;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setCartProductname(String cartProductname) {
+		this.cartProductname = cartProductname;
 	}
 
-	
-	
-	
+	public String getCartImage() {
+		return cartImage;
+	}
+
+	public void setCartImage(String cartImage) {
+		this.cartImage = cartImage;
+	}
+
+	public int getCartId() {
+	return cartId;
+	}
+
+	public void setCartId(int cartId) {
+	this.cartId = cartId;
+	}
+
+	public int getCartProductId() {
+	return cartProductId;
+	}
+
+	public void setCartProductId(int cartProductId) {
+	this.cartProductId = cartProductId;
+	}
+
+	public User getCartUserDetails() {
+	return cartUserDetails;
+	}
+
+	public void setCartUserDetails(User cartUserDetails) {
+	this.cartUserDetails = cartUserDetails;
+	}
+
+	public Double getCartPrice() {
+	return cartPrice;
+	}
+
+	public void setCartPrice(Double cartPrice) {
+	this.cartPrice = cartPrice;
+	}
+
+	public int getCartQuantity() {
+	return cartQuantity;
+	}
+
+	public void setCartQuantity(int cartQuantity) {
+	this.cartQuantity = cartQuantity;
+	}
+
+
 }

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,15 +21,26 @@
  			<div class="panel panel-primary">
                  <div class="panel-heading">Trendy Top</div>
                  <div class="panel-body">
-                 <form role="form" method="post" action="" accept-charset="UTF-8">
-                  <img src="resources/images/top1.jpg" class="img-rounded" alt="Tops" />
-                  <div>Black Polyester Crepe Fit and Flare Dress
-					   Box Pleats on the waist for styling
-                       Stylized Strappy Neckline
-                        Centre back zipper for fastening and ease</div>
-                         <input type="submit" class="btn btn-primary m-t-10" id="submitbtn" name="submit" value="Add To Cart">
-
-        
+                 <form role="form" method="post" action="${pageContext.request.contextPath}/addToCart" accept-charset="UTF-8">
+                 <%-- <table>
+                 <th>Name</th>
+                 <th>Price</th>
+                 <th>Supplier</th>
+                 <th>Description</th>
+                 <th>Image</th>
+                 <tr><td>${product.productName}</td></tr>
+                 <tr><td>${product.price}</td></tr>
+                 <tr><td>${product.supplier}</td></tr>
+                 <tr><td>${product.description}</td></tr>
+                 <tr><td><img src="./resources/images/${product.imgName}" height="60px" width="60px"/></td></tr>
+                 <tr><td></td></tr>
+                 </table> --%>
+        <input type="text" name="pname" value="${product.productName}" />
+        <input type="text" name="pprice" value="${product.price}" />
+        <input type="text" name="pprice" value="${product.supplier}" />
+        <input type="text" name="pprice" value="${product.description}" />
+<%--         <input type="text" name="pprice" value="<img src="./resources/images/${product.imgName}" height="60px" width="60px"/>" /> --%>
+                 <input type="submit" value="Add to Cart" />
                  </form>
                  </div>
              </div>

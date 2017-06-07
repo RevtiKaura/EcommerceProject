@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 <%-- <form action="<c:url value="/"/>" method="post">
 											<input type="text" name="user" placeholder="email">
@@ -28,7 +29,7 @@
                 <div class="msg">${msg}</div>
             </c:if>
  
-            <form name="loginForm" action="<c:url value="/admin" />" method="post">
+            <form name="loginForm" action="<c:url value="/login" />" method="post">
                 <c:if test="${not empty error}">
                     <div class="error" style="color: #ff0000;">${error}</div>
                 </c:if>

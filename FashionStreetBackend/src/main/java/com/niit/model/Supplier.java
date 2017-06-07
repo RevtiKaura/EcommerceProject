@@ -13,24 +13,28 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="SupplierDetails")
+@Table
 public class Supplier implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="SupplierId")
 	private int supplierId;
 	private String supplierName;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "productId")
-	private Set<Product> products = new HashSet<Product>(0);
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "supplier")
+	private Set<Product> products;
+	
+
 	
 	public int getSupplierId() {
 		return supplierId;
 	}
 	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	public String getSupplierName() {
 		return supplierName;

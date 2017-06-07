@@ -4,26 +4,37 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.niit.model.*;
 
 @Entity
-@Table(name="ProductDetails")
-//@ComponentScan(basePackages="com.niit")
+@Table
 public class Product implements Serializable {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+public static long getSerialversionuid() {
+	return serialVersionUID;
+}
 @Id
-@Column(name="ProductId")
+@GeneratedValue(strategy = GenerationType.AUTO)
 int productId;
-@Column(name="Price")
-int price;
-@Column(name="Quantity")
-int quantity;
-@Column(name="ProductName")
+double price;
+int quantity;//stock
+
 String productName;
-@Column(name="Description")
 String description;
+String imgName;
+
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "supplierId", nullable = false)
+private Supplier supplier;
+
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "categoryId", nullable = false)
+private Category category;
 
 @Transient	
 MultipartFile file;
@@ -35,10 +46,13 @@ public void setFile(MultipartFile file) {
 	this.file = file;
 }
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "S_ID", nullable = false)
-private Supplier supplier;
 
+public String getImgName() {
+	return imgName;
+}
+public void setImgName(String imgName) {
+	this.imgName = imgName;
+}
 public Supplier getSupplier() {
 	return supplier;
 }
@@ -46,9 +60,7 @@ public void setSupplier(Supplier supplier) {
 	this.supplier = supplier;
 }
 
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "C_ID", nullable = false)
-private Category category;
+
 
 
 public Category getCategory() {
@@ -65,26 +77,16 @@ public Product()
 	
 }
 
-
-
-public Product(int productId, int price, int quantity, String productName, String description, Supplier supplier,
-		Category category) {
-	super();
-	this.productId = productId;
-	this.price = price;
-	this.quantity = quantity;
-	this.productName = productName;
-	this.description = description;
-	this.supplier = supplier;
-	this.category = category;
-}
 public void setProductId(int productId) {
 	this.productId = productId;
 }
-public int getPrice() {
+
+
+
+public double getPrice() {
 	return price;
 }
-public void setPrice(int price) {
+public void setPrice(double price) {
 	this.price = price;
 }
 public int getQuantity() {

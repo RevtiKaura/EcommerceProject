@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 <%-- <form action="<c:url value="/"/>" method="post">
 											<input type="text" name="user" placeholder="email">

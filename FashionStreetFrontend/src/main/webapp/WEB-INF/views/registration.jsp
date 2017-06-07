@@ -1,48 +1,84 @@
+<%@taglib uri="http://www.springframework.org/tags/form"  prefix="f"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ <style>
+ .err{
+ color:red;
+ 
+ }
+  </style>
 </head>
-
 <body>
-<jsp:include page="header.jsp"></jsp:include>
-  <div class="row">
-         <div class="col-md-6 col-md-offset-3">
-             <div class="panel panel-primary">
-                 <div class="panel-heading">Sign Up Form</div>
-                 <div class="panel-body">
-                     <form role="form" method="post" action="" accept-charset="UTF-8">
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
-                         <label for="fname">First Name</label>
-                         <input type="text" id="fname" class="form-control" name="fname" placeholder="">
+<div class="container">
+<div class="panel">
+<div><br/><br/><br/></div>
+    <h1 class="well"><center>Registration Form</center></h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<f:form modelAttribute="user" action="registerUser" method="post">
+					<div class="col-sm-12">
+						
+					
 
-                         <label for="lname">Last Name</label>
-                         <input type="text" id="lname" class="form-control" name="lname" placeholder="">
-
-                         <label for="emailaddr" class="m-t-10">Email Address</label>
-                         <input type="text" id="emailaddr" class="form-control" name="email" placeholder="">
-
-                         <label for="password" class="m-t-10">Password</label>
-                         <input type="password" id="password" class="form-control" name="password" placeholder="">
-
-                         <label for="verifypass" class="m-t-10">Verify Password</label>
-                         <input type="password" id="confirmpass" class="form-control" name="verifypass" placeholder="">
-                         
-                         <label for="dob" class="m-t-10">Date of Birth</label>
-                         <input type="date" id="dob" class="form-control" name="dob" placeholder="">
-                         
-                         <label for="mobilenum" class="m-t-10">Mobile Number</label>
-                         <input type="text" id="mobilenum" class="form-control" name="mobilenum" placeholder="">
-
-                         <center><input type="submit" class="btn btn-primary m-t-10" id="submitbtn" name="submit" value="Submit"></center>
-
-                     </form>
-                 </div>
-             </div>
-         </div>
-     </div>
- <jsp:include page="footer.jsp"></jsp:include>
-
+						<div class="form-group">
+						<f:errors path="userEmail" cssClass="err"></f:errors><br/>
+							<label>Email</label>
+								<f:input placeholder="Enter your email id" path="userEmail" class="form-control"></f:input>
+						</div>
+						
+								
+								<div class="form-group">
+							<f:errors path="fullName" cssClass="err"></f:errors><br/>
+								
+							<label>Name</label>
+								<f:input  placeholder="Enter Full Name"  path="fullName" class="form-control" ></f:input>
+						</div>
+										
+						<div class="form-group">
+						<f:errors path="password" cssClass="err"></f:errors><br/>
+						
+						<label> Password</label>
+						<f:password placeholder="Enter Password" path="password" class="form-control" ></f:password>
+					</div>		
+					
+						<div class="form-group">
+						<f:errors path="address" cssClass="err"></f:errors><br/>
+						
+							<label>Address</label>
+							<f:textarea placeholder="Enter Address" rows="3" path="address" class="form-control" ></f:textarea>
+						</div>	
+						
+										
+					<div class="form-group">
+					<f:errors path="usernum" cssClass="err"></f:errors><br/>
+					
+						<label>Phone Number</label>
+						<f:input placeholder="Enter Phone Number"  path="usernum" class="form-control" ></f:input>
+					</div>		
+					
+				   <center>	<button type="submit" class="btn btn-lg btn-success">Submit</button></center>					
+					</div>
+				</f:form> 
+				</div>
+	</div>
+	</div>
+	<script>
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	} );
+	</script>
+ 
+  </div>  
+   <div><br/><br/><br/><br/><br/></div> 
 </body>
+ <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </html>

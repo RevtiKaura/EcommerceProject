@@ -17,19 +17,13 @@
 		<table border="1">
 			<th>No</th>
 			<th>Name</th>
-			<th>Set of Products</th>
-			<th>Edit</th>
-			<th>Delete</th>
-
-
+			
 			<c:forEach var="cat" items="${catList}">
 				<tr>
 
 					<td><c:out value="${cat.categoryId}"></c:out></td>
 					<td><c:out value="${cat.categoryName}"></c:out></td>
-					<td>P</td>
-					<td><a href="">Edit</a></td>
-					<td><a href="">Delete</a></td>
+									
 
 				</tr>
 			</c:forEach>

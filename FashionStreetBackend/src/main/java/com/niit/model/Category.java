@@ -7,20 +7,23 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name="CategoryDetails")
+@Table
 public class Category implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="CategoryId",unique = true, nullable = false)
+	@Column(unique = true, nullable = false)
 	private int categoryId;
 	private String categoryName;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-	private Set<Product> products = new HashSet<Product>(0);
+	private Set<Product> products;
 	
 
+	
+
+	
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -46,7 +49,6 @@ public class Category implements Serializable {
 		this.products = products;
 	}
 
-	
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;

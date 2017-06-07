@@ -10,25 +10,35 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
+	<div class="container">
+<div><br/><br/><br/></div>
  <div align="center">
             <h1>Supplier List</h1>
-           
-            <table border="1">
+           <div><br/><br/><br/></div>
+          
+            <table class="table table-bordered table-striped tbcat">
+            <thead>
+            <tr>
                 <th>ID</th>
                 <th>Name</th>
+                </tr>
+                 </thead>
                
-                 
-                <c:forEach var="product" items="${supplierlist}">
-                <tr>
+                <tbody>
+                 <c:forEach var="product" items="${supplierlist}">
+                  <tr>
                    
                     <td>${product.supplierId}</td>
                     <td>${product.supplierName}</td>
                    
                 </tr>
-                </c:forEach>             
+                </c:forEach>   
+                </tbody>
+                         
             </table>
         </div>
- 
-        
+</div>
+ <jsp:include page="footer.jsp"></jsp:include>       
 </body>
 </html>

@@ -1,8 +1,8 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,32 +29,30 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="home">FashionStreet</a>
+			<a class="navbar-brand" href="<c:url value='/home'/>">FashionStreet</a>
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="">Shop by Category<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<c:forEach var="catVal" items="${catList}">
-							<li><a href="productCustList?cid=${catVal.categoryId}">${catVal.categoryId}</a></li>
+						<c:forEach var="catVal" items="${categoryList1}">
+							<li><a href="productCustList/${catVal.categoryId}">${catVal.categoryName}</a></li>
 						</c:forEach>
 					</ul></li>
-				<li><a href="<c:url value="/admin/product/add"/>">Add</a></li>
+				<li><a href="${contextRoot}/admin/add">Add</a></li>
 			</ul>
 			<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
-                                <li><a href="<c:url value="/admin" />">Admin</a></li>
-                            </c:if>
+              <li><a href="<c:url value="/admin" />">Admin</a></li>
+              </c:if>
 			<ul class="nav navbar-nav navbar-right">
-			<li><a href="<c:url value="/login/"/>">Login !</a></li>
+			<li><a href="<c:url value="/admin/login/"/>">Login!</a></li>
 			<li><a href="reg">Register</a></li>
-			 <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-                            <li><a href="<c:url value="/logout" />">Logout</a></li>
+		    <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+            <li><a href="<c:url value="/logout" />">Logout</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
-
-
 </body>
 </html>

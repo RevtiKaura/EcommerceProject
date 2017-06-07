@@ -10,30 +10,31 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 	<div class="container">
-		<h1>Category List</h1>
-
-		<table border="1">
+	<div><br/><br/><br/></div>
+		<h1><center>Category List</center></h1>
+<div><br/><br/><br/></div>
+		<table class="table table-bordered table-striped tbcat">
+		<thead><tr>
 			<th>No</th>
 			<th>Name</th>
-			<th>Set of Products</th>
-			<th>Edit</th>
-			<th>Delete</th>
-
-
+			</tr>
+		</thead>
+		<tbody>
 			<c:forEach var="cat" items="${catList}">
 				<tr>
 
 					<td><c:out value="${cat.categoryId}"></c:out></td>
 					<td><c:out value="${cat.categoryName}"></c:out></td>
-					<td>P</td>
-					<td><a href="">Edit</a></td>
-					<td><a href="">Delete</a></td>
+									
 
 				</tr>
 			</c:forEach>
-		</table>
+		</tbody>		
+	</table>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,31 +11,55 @@
 <jsp:include page="header.jsp"></jsp:include>
 <div class="container">
 <div class="row">
-<br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
 </div>
-	<div class="row">
-		<div class="col-md-6 col-md-offset-2">
- 			<div class="panel panel-primary">
-                 <div class="panel-heading">Trendy Top</div>
-                 <div class="panel-body">
-                 <form role="form" method="post" action="" accept-charset="UTF-8">
-                  <img src="resources/images/top1.jpg" class="img-rounded" alt="Tops" />
-                  <div>Black Polyester Crepe Fit and Flare Dress
-					   Box Pleats on the waist for styling
-                       Stylized Strappy Neckline
-                        Centre back zipper for fastening and ease</div>
-                         <input type="submit" class="btn btn-primary m-t-10" id="submitbtn" name="submit" value="Add To Cart">
-
-        
-                 </form>
-                 </div>
-             </div>
-         </div>
-        </div>
-  </div>
+<div class="container">
+<div class="row">
+<div class="col-sm-5 well">
+<center>
+<img src="${pageContext.request.contextPath}/resources/upload/${product.imgName}" height="400px" width="400px"/>
+</center>
+</div>
+<div class="col-md-7">
+<table id="cart" class="table table-hover table-condensed tbdesc">
+    				<thead>
+						<tr>
+							<th colspan="2" >Product</th>
+							<th colspan="2" >Price</th>
+							<th colspan="2" >Supplier</th>
+							<th colspan="2" >Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td colspan="2">${product.productName}</td>
+							<td colspan="2">${product.price}</td>
+							<td colspan="2">${product.supplier.supplierName}</td>
+						    <td colspan="2">${product.description}</td>
+						</tr>
+						</tbody>
+						</table>
+						<div>
+						<form action="${pageContext.request.contextPath}/addToCart" method="post">
+                		 <input type="hidden" value="${product.productId}" name="pId" />
+               			 <input type="hidden" value="${product.price}" name="pPrice" />
+               			 <input type="hidden" value="${product.productName}" name="prodName" />
+               			 <input type="hidden" value="${product.imgName}" name="prodImage" />
+               			 <span style="font-size:40px">Quantity</span>
+						<input type="text" name="quant" style="width:50px;height:50px"/>
+						<br/><br/>
+						<button type="submit" class="btn btn-success btnSize">Add to Cart</button>
+                     
+                 		</form></div>	
+				
+				
+</div>
+</div>
+</div>
+</div>	
 <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

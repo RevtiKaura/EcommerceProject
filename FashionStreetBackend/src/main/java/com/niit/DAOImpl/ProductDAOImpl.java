@@ -3,11 +3,13 @@ import java.util.*;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.DAO.*;
+import com.niit.model.Category;
 import com.niit.model.Product;
 
 @Repository
@@ -19,12 +21,21 @@ public class ProductDAOImpl implements ProductDAO{
 
 	
 	public List<Product> getProductList() {
-		return session.getCurrentSession().createQuery("from Product").list();
+		Session ssn=session.openSession();
+		ssn.beginTransaction();
+		List<Product> list=ssn.createQuery("from Product").list();
+		ssn.getTransaction().commit();
+		return list;
 	}
+	
+	
+	
 
 	public Product getProduct(Integer id) {
-		Product p = session.getCurrentSession().get(Product.class, new Integer(id));
-
+		Session ssn=session.openSession();
+		ssn.beginTransaction();
+		Product p = ssn.get(Product.class,id);
+        ssn.getTransaction().commit();
 		return p;
 	
 	}
@@ -35,17 +46,39 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	public void deleteProductById(int productId) {
-		// TODO Auto-generated method stub
+		
+		Session ssn=session.openSession();
+		ssn.beginTransaction();
+		Product p = ssn.get(Product.class, new Integer(productId));
+		ssn.delete(p);
+		ssn.getTransaction().commit();
 		
 	}
 
-	public void updateProduct(Product p) {
-		// TODO Auto-generated method stub
-		
+	public void updateProduct(Product product) {
+
+		Session ssn=session.openSession();
+		ssn.beginTransaction();
+	
+		ssn.update(product);
+		ssn.getTransaction().commit();
+	}
+
+
+
+
+	public List<Product> getProductsByCategory(int cid) {
+		  Session ssn=session.openSession();
+		  List<Product> products =null;
+		  ssn.beginTransaction();
+		  products= ssn.createQuery("from Product where categoryId="+cid).list();   
+		  ssn.getTransaction().commit();
+		   return products;
 	}
 
 		
 
+	  
 	
 
 	

@@ -33,7 +33,7 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="tab1warning">
-                        <form action="<c:url value="categoryDone"/>" method="post">
+                        <form action="<c:url value="/admin/categoryDone"/>" method="post">
 				<table>
 				<tr>
 				<td>Category Id
@@ -64,7 +64,7 @@
 				</div>
 				
                  <div class="tab-pane fade" id="tab2warning">
-                 <form action="<c:url value="supplierDone" />">
+                 <form action="<c:url value="/admin/supplierDone" />">
 				<table>
 				<tr>
 				<td>Supplier Id
@@ -95,7 +95,7 @@
                       
                
                      <div class="tab-pane fade" id="tab3warning">
-					   <form action="<c:url value="saveProduct"/>" method="post" enctype="multipart/form-data">
+					   <form action="<c:url value="/admin/saveProduct"/>" method="post" enctype="multipart/form-data">
 				<table>
 			
 				<tr>
@@ -121,7 +121,7 @@
 				<td><input type="text" name="price"></td></tr>
 				<tr><td>Description</td>
 				<td><input type="text" name="description"></td></tr>
-				<tr><td>Quantity</td>
+				<tr><td>Stock</td>
 				<td><input type="text" name="quantity"></td></tr>
 				
 				<tr>

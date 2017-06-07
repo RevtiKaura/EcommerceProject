@@ -28,7 +28,7 @@ public class HomeController {
 
 	
 	
-	@RequestMapping( value="/")
+	@RequestMapping( value={"/","/home"})
 	public ModelAndView welcome() {
 		ModelAndView model = new ModelAndView("index");
 		model.addObject("categoryList1", categorydao.getCategoryList());
@@ -47,6 +47,8 @@ public class HomeController {
 	@RequestMapping(value = "/productCustList/{cid}")
 	public ModelAndView displayCustProducts(@PathVariable("cid") int cid) {
 		ModelAndView mv = new ModelAndView("productCustList");
+		mv.addObject("categoryList1", categorydao.getCategoryList());
+
 		mv.addObject("custProducts", productdao.getProductsByCategory(cid));
 		return mv;
 	}

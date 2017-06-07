@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+ 
+<view-state id="cartDetails" view="cart.jsp">
+ <transition on="ContinueShopping" to="toContinueShopping"/>
+  <transition on="Checkout" to="toCheckout"/>
+</view-state>
+ 
+ <view-state id="toContinueShopping"  view="/" />
+
+<view-state id="toCheckout" view="checkout.jsp" model="cart">
+  <transition on="proceed" to="toproceed"/>
+  <transition on="notproceed" to="cancelCheckout"/>
+</view-state>
+ 
+<view-state id="toproceed" view="invoice.jsp">
+  <transition on="invoice" to="acknowledgement"/>
+</view-state>
+ 
+ <view-state id="acknowledgement" view="acknowledge.jsp">
+ <transition to="endstate" />
+ </view-state>
+ <end-state id="endstate"/>
+<end-state id="cancelCheckout" view="index.jsp" />
+
+
+</flow>

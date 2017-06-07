@@ -16,52 +16,54 @@
 	<div class="col-lg-12 well">
 	<div class="row">
 				<%-- <f:form modelAttribute="product" action="admin/updateProduct" method="post"> --%>
-				<f:form modelAttribute="product" action="updateProduct" method="post">
+				<form action="${pageContext.request.contextPath}/admin/updateProductDetails" method="post">
 					<div class="col-sm-12">
 						
-					
+					<div class="form-group">
+						
+						<input type="hidden" name="productId" class="form-control"/>
+						</div>
 
 						<div class="form-group">
 							<label>Product Name</label>
-								<f:input  path="productName" class="form-control"></f:input>
+							<input type="text" name="productName" class="form-control"/>
 						</div>
 						
 								
 								<div class="form-group">
-							<label>Category</label>
-								<f:select path="category">
-								<f:option value="0" label="-------Select-------"/>
-								<f:options items='${clist}' itemLabel="categoryName" itemValue="categoryId" />
-								
-								</f:select>
+							    <label>Category</label>
+								<select name="category">
+								<option value="0" label="-------Select-------"/>
+								<options items='${clist}' itemLabel="categoryName" itemValue="categoryId" />
+								</select>
 						</div>
 										
 						<div class="form-group">
 							<label>Supplier</label>
-							<f:select path="supplier">
-								<f:option value="0" label="-------Select-------"/>
-								<f:options items="${slist}" itemLabel="supplierName" itemValue="supplierId" />
-								</f:select>
-					</div>		
+							<select name="supplier">
+							<option value="0" label="-------Select-------"/>
+							<options items="${slist}" itemLabel="supplierName" itemValue="supplierId" />
+							</select>
+					    </div>		
 					
 						<div class="form-group">
 							<label>Price</label>
-							<f:input path="price" class="form-control" ></f:input>
+							<input type="text" name="price" class="form-control" ></input>
 						</div>	
 						
 										
 					<div class="form-group">
 						<label>Description</label>
-						<f:input path="description" class="form-control" ></f:input>
+						<input type="text" name="description" class="form-control" ></input>
 					</div>		
 					
 					<div class="form-group">
 						<label>Quantity</label>
-						<f:input path="quantity" class="form-control" ></f:input>
+						<input type="text"  name="quantity" class="form-control" ></input>
 					</div>	
 					<button type="submit" class="btn btn-lg btn-info">Update Product</button>					
 					</div>
-				</f:form> 
+				</form> 
 				</div>
 	</div>
 	</div>

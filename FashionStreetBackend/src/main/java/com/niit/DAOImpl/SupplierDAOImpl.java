@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,22 @@ public class SupplierDAOImpl implements SupplierDAO {
 		return list;
 	}
 
-	public Supplier getSupplier(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Supplier getSupplierById(Integer id) {
+		Session ssn=session.openSession();
+		Supplier p=null;
+		try{
+			ssn.beginTransaction();
+		 p=	ssn.get(Supplier.class, id);
+		ssn.getTransaction().commit();
+			
+			
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			ssn.getTransaction().rollback();
+		}
+		return p;
 	}
+
 
 	public void insertSupplier(Supplier p) {
 		Session ses=session.openSession();

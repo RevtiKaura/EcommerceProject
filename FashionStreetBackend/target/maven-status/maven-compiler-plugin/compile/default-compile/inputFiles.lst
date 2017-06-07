@@ -1,5 +1,19 @@
-C:\Version2\workspace\FashionStreetBackend\src\main\java\com\niit\config\HibernateConfig.java
-C:\Version2\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\ProductDAOImpl.java
-C:\Version2\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\ProductDAO.java
-C:\Version2\workspace\FashionStreetBackend\src\main\java\FashionStreetback\FashionStreetBackend\App.java
-C:\Version2\workspace\FashionStreetBackend\src\main\java\com\niit\model\Product.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\CartDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\OrderDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\ProductDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\Cart.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\User.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\Category.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\FashionStreetback\FashionStreetBackend\App.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\config\HibernateConfig.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\CategoryDAOImpl.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\ProductDAOImpl.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\SupplierDAOImpl.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\UserDAOImpl.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAOImpl\CartDAOImpl.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\CategoryDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\SupplierDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\Product.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\Supplier.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\DAO\UserDAO.java
+C:\Version new\workspace\FashionStreetBackend\src\main\java\com\niit\model\Orders.java

@@ -11,57 +11,74 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <div class="container">
-    <h1 class="well">Registration Form</h1>
+    <h1 class="well">Product Table</h1>
 	<div class="col-lg-12 well">
 	<div class="row">
 				<%-- <f:form modelAttribute="product" action="admin/updateProduct" method="post"> --%>
-				<f:form modelAttribute="product" action="updateProduct" method="post">
+				<form action="${pageContext.request.contextPath}/admin/productUpdate" method="post" enctype="multipart/form-data">
 					<div class="col-sm-12">
 						
-					
+					<div class="form-group">
+						
+						<input type="hidden" name="productId" class="form-control" value="${product.productId}"/>
+						</div>
 
 						<div class="form-group">
 							<label>Product Name</label>
-								<f:input  path="productName" class="form-control"></f:input>
+							<input type="text" name="productName" class="form-control" value="${product.productName}"/>
 						</div>
 						
 								
 								<div class="form-group">
-							<label>Category</label>
-								<f:select path="category">
-								<f:option value="0" label="-------Select-------"/>
-								<f:options items='${clist}' itemLabel="categoryName" itemValue="categoryId" />
-								
-								</f:select>
+							    <label>Category</label>
+								<select name="pCategory">
+								<option value="0" label="-------Select-------"/>
+								<c:forEach items="${clist}" var="cate">
+						<option value="${cate.categoryId}">${cate.categoryName}</option>
+						</c:forEach>
+						</select>
 						</div>
 										
 						<div class="form-group">
 							<label>Supplier</label>
-							<f:select path="supplier">
-								<f:option value="0" label="-------Select-------"/>
-								<f:options items="${slist}" itemLabel="supplierName" itemValue="supplierId" />
-								</f:select>
-					</div>		
+							<select name="pSupplier">
+							<option value="0" label="-------Select-------"/>
+							<c:forEach items="${slist}" var="sate">
+						<option value="${sate.supplierId}">${sate.supplierName}</option>
+									                
+						
+						</c:forEach>
+					</select>
+					    </div>		
 					
 						<div class="form-group">
 							<label>Price</label>
-							<f:input path="price" class="form-control" ></f:input>
+							<input type="text" name="price" class="form-control" value="${product.price}" ></input>
 						</div>	
 						
 										
 					<div class="form-group">
 						<label>Description</label>
-						<f:input path="description" class="form-control" ></f:input>
+						<input type="text" name="description" class="form-control" value="${product.description}"></input>
 					</div>		
 					
 					<div class="form-group">
-						<label>Quantity</label>
-						<f:input path="quantity" class="form-control" ></f:input>
+						<label>Stock</label>
+						<input type="text"  name="quantity" class="form-control" value="${product.quantity}" ></input>
 					</div>	
-					<button type="submit" class="btn btn-lg btn-info">Update Product</button>					
+					
+						<div class="form-group">
+						<label>Image</label>
+						<input type="file"  name="file" class="form-control" ></input>
+					</div>	
+					
+				
+					
+					<input type="submit" value="Submit" />					
 					</div>
-				</f:form> 
+				</form> 
 				</div>
 	</div>
 	</div>

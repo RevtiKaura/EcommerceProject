@@ -37,8 +37,8 @@
                     <td>${product.quantity}</td>
                     <td>${product.supplier.supplierName}</td>
                     <td><img src="./resources/images/${product.imgName}" height="60px" width="60px"/></td>   
-                    <td><a href="updateProduct/${product.productId}">Edit</a></td>   
-                    <td><a href="deleteProduct/${product.productId}">Delete</a></td>  
+                    <td><a href="<c:url value="/admin/updateProduct/${product.productId}" />">Edit</a></td>   
+                    <td><a href="<c:url value="/admin/deleteProduct/${product.productId}" />">Delete</a></td>  
                     <td>${product.imgName}</td>  
                 </tr>
                 </c:forEach>             
