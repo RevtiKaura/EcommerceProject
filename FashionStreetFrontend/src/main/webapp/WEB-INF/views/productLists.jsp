@@ -58,7 +58,7 @@ font-size: 24px;
                     <td>${product.price}</td>
                     <td>${product.quantity}</td>
                     <td>${product.supplier.supplierName}</td>
-                    <td><img src="${pageContext.request.contextPath}/resources/upload/${product.imgName}" height="60px" width="60px"/></td>   
+                    <td><img src="${pageContext.request.contextPath}/resources/images/${product.imgName}" height="60px" width="60px"/></td>   
                     <td><a href="<c:url value="/admin/updateProduct/${product.productId}"  />">Edit</a> 
                         <a href="<c:url value="/admin/deleteProduct/${product.productId}" />">Delete</a></td>   
                 </tr>

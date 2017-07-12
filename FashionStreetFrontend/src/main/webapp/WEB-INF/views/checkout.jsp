@@ -1,4 +1,4 @@
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,7 +19,7 @@
           </div>
 
             <div style="width:100%">
-     		<form action="${pageContext.request.contextPath}/invoiceprocess"  method="post">
+     		<form action="${pageContext.request.contextPath}/invoiceprocess" method="post">
             
             <c:set var="calc" value="0"></c:set>
    			 <c:forEach var="c" items="${cart}">
@@ -109,12 +109,13 @@
             </div>
            
             <br/>
+
             <center>  <input type="submit"  value="PROCEED" style="width:55%; font-size:20px;" class="btn btn-success"></center>
                 </form>
         </div>
     </div>
      </div>
      <div><br/><br/><br/></div>
-     <jsp:include page="footer.jsp"></jsp:include>   
+      <jsp:include page="footer.jsp"></jsp:include>    
 </body>
-</html>
+</html> 

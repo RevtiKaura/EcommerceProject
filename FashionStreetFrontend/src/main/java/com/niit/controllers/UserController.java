@@ -3,6 +3,7 @@ package com.niit.controllers;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,11 @@ public class UserController {
 	ProductDAO productDao;
 	
 	@RequestMapping(value="/reg",method=RequestMethod.GET)
-	public ModelAndView msg()
+	public ModelAndView msg(HttpSession ssn)
 	{
 		ModelAndView mv=new ModelAndView("registration");
 		mv.addObject("categoryList1", categoryDao.getCategoryList());
-
+//ssn.setAttribute("dp",categoryDao.getCategoryList() );
 		mv.addObject("user",new User());
 		return mv;
 		

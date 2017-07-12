@@ -100,7 +100,7 @@ public class AdminController {
 		productDao.insertProduct(product);
 		try {
 			byte imagebyte[] = file.getBytes();
-			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/resources/upload/"+originalfile));
+			BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(filepath+"/resources/images/"+originalfile));
 			fos.write(imagebyte);
 			fos.close();
 			

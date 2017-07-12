@@ -58,7 +58,7 @@ font-size: 24px;
                     <td>${product.price}</td>
                     <td>${product.quantity}</td>
                     <td>${product.supplier.supplierName}</td>
-                    <td><a href="${pageContext.request.contextPath}/productDetails1/${product.productId}"><img src="${pageContext.request.contextPath}/resources/upload/${product.imgName}" height="60px" width="60px"/></a></td>
+                    <td><a href="${pageContext.request.contextPath}/productDetails1/${product.productId}"><img src="${pageContext.request.contextPath}/resources/images/${product.imgName}" height="60px" width="60px"/></a></td>
                 </tr>
                 </c:forEach>       
                 </tbody>          

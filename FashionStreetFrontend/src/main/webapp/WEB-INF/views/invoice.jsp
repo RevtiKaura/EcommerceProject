@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<jsp:include page="header.jsp"></jsp:include>
+ <jsp:include page="header.jsp"></jsp:include> 
 <body>
 	<div class="container">
 		<div><br/><br/><br/></div>
@@ -83,7 +83,7 @@
         </div>
     </div>
 </div>
-<a class="btn btn-success" style="float:right" href="ack"><span style="font-size:20px;font-family:sans-serif;">OK</span></a>
+<a class="btn btn-success" style="float:right" href="checkout1"><span style="font-size:20px;font-family:sans-serif;">OK</span></a>
 	</div>
 <style>
 .height {
@@ -95,7 +95,7 @@
     color: #5CB85C;
 }
 
-.iconbig {
+.iconbig {1
     font-size: 77px;
     color: #5CB85C;
 }
@@ -115,6 +115,6 @@
 
 	
 
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="footer.jsp"></jsp:include> 
 </body>
 </html>

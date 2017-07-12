@@ -38,15 +38,15 @@ public class CartController {
 	@Autowired 
     OrdersDao orderdao;
 	
-/*	@RequestMapping("addToCart")
+   @RequestMapping("checkout1")
 	public String test() {
 		System.out.println("inside add to cart");
-		return "redirect:/flow";
+		return "redirect:/checkoutflow";
 		
-	}*/
+	}
 	
 	@ModelAttribute
-	public ModelAndView  addList(){
+	public ModelAndView addList(){
 	
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("categoryList1", categoryDao.getCategoryList());
@@ -111,8 +111,8 @@ public class CartController {
 		 }
 		 }
 	
-	@RequestMapping("/checkout")
-	public ModelAndView checkout(HttpServletRequest request){
+	    @RequestMapping("/checkout")
+	    public ModelAndView checkout(HttpServletRequest request){
 		ModelAndView mav=new ModelAndView("checkout");
 		Principal principal=request.getUserPrincipal();
 		String userEmail=principal.getName();

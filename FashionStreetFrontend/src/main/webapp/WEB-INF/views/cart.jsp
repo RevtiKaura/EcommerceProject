@@ -65,9 +65,12 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </a></td>
                         <td>
-                        <a href="${pageContext.request.contextPath}/checkout" class="btn btn-success">
+                       <%--  <a href="${pageContext.request.contextPath}/checkout" class="btn btn-success">
                             Checkout <span class="glyphicon glyphicon-play"></span>
-                        </a></td> 
+                        </a> --%>
+                        
+                        <a href="${pageContext.request.contextPath}/checkout">Checkout</a>
+                        </td> 
                    
                     </tr>
                 </tfoot>

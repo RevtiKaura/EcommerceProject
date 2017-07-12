@@ -38,6 +38,7 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="">Shop by Category<span class="caret"></span></a>
+					<%-- <c:set var="do" value="${dp}"></c:set> --%>
 					<ul class="dropdown-menu">
 						<c:forEach var="catVal" items="${categoryList1}">
 							<li><a href="${pageContext.request.contextPath}/productCustList/${catVal.categoryId}">${catVal.categoryName}</a></li>
@@ -45,14 +46,20 @@
 					</ul></li>
 				<li><a href="${contextRoot}/admin/add">Add</a></li>
 			</ul>
-			<c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
-              <li><a href="<c:url value="/admin" />">Admin</a></li>
-              </c:if>
+			
+             <%--  <li><a href="<c:url value="/admin" />">Admin</a></li> --%>
+              
+              		
+              
 			<ul class="nav navbar-nav navbar-right">
+					<c:if test="${pageContext.request.userPrincipal.name==null}">
 			<li><a href="${contextRoot}/login">Login!</a></li>
-			<li><a href="${contextRoot}/reg">Register</a></li>
+			
+			<li><a href="${contextRoot}/reg">Register</a></li></c:if>
+				<c:if test="${pageContext.request.userPrincipal.name!=null}">
 		    <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
             <li><a href="<c:url value="/logout" />">Logout</a></li>
+            </c:if>
 			</ul>
 		</div>
 	</div>

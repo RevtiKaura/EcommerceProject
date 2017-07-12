@@ -20,7 +20,7 @@
 <div class="row">
 <div class="col-sm-5 well">
 <center>
-<img src="${pageContext.request.contextPath}/resources/upload/${product.imgName}" height="400px" width="400px"/>
+<img src="${pageContext.request.contextPath}/resources/images/${product.imgName}" height="400px" width="400px"/>
 </center>
 </div>
 <div class="col-md-7">
